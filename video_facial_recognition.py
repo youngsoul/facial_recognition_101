@@ -31,7 +31,7 @@ vs = VideoStream(src=0).start()
 time.sleep(0.3)
 
 cv2.namedWindow("Frame", cv2.WINDOW_NORMAL)
-
+cv2.resizeWindow('Frame', 800,600)
 # loop over frames from the vdeo file stream
 while True:
     frame = vs.read()

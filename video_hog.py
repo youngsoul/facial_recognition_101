@@ -114,6 +114,8 @@ if __name__ == '__main__':
 
     cv2.namedWindow("Original", cv2.WINDOW_NORMAL)
     cv2.namedWindow("HOG", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow('Original', 800, 600)
+    cv2.resizeWindow('HOG', 800, 600)
 
     # loop over frames from the vdeo file stream
     while True:

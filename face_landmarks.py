@@ -21,6 +21,7 @@ if __name__ == '__main__':
 
     cap = cv2.VideoCapture(0)
     cv2.namedWindow("Landmarks", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow('Landmarks', 800, 600)
 
     while True:
         # load the input image and convert it to grayscale

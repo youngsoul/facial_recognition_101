@@ -37,6 +37,7 @@ if __name__ == '__main__':
     time.sleep(0.2)
 
     cv2.namedWindow("Encodings", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow('Encodings', 800, 600)
 
     # loop over frames from the vdeo file stream
     while True:
