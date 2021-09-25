@@ -36,13 +36,15 @@ if __name__ == '__main__':
     vs = VideoStream(src=0).start()
     time.sleep(0.2)
 
+    cv2.namedWindow("Encodings", cv2.WINDOW_NORMAL)
+
     # loop over frames from the vdeo file stream
     while True:
         # grab the frame from the threaded video stream
         frame = vs.read()
 
         detect_mark_faces(frame)
-        cv2.imshow("Original", frame)
+        cv2.imshow("Encodings", frame)
 
         key = cv2.waitKey(3) & 0xFF
 

@@ -112,6 +112,8 @@ if __name__ == '__main__':
     vs = VideoStream(src=0).start()
     time.sleep(0.2)
 
+    cv2.namedWindow("Original", cv2.WINDOW_NORMAL)
+    cv2.namedWindow("HOG", cv2.WINDOW_NORMAL)
 
     # loop over frames from the vdeo file stream
     while True:

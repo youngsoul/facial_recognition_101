@@ -20,6 +20,7 @@ if __name__ == '__main__':
     predictor = dlib.shape_predictor(p)
 
     cap = cv2.VideoCapture(0)
+    cv2.namedWindow("Landmarks", cv2.WINDOW_NORMAL)
 
     while True:
         # load the input image and convert it to grayscale
@@ -43,7 +44,7 @@ if __name__ == '__main__':
                 cv2.circle(image, (x, y), 2, (0, 255, 0), -1)
 
         # show the output image with the face detections + facial landmarks
-        cv2.imshow("Output", image)
+        cv2.imshow("Landmarks", image)
         key = cv2.waitKey(5) & 0xFF
         if key == ord("q"):
             break
