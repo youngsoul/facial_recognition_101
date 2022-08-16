@@ -4,9 +4,12 @@ import dlib
 import cv2
 import argparse
 import time
-
+from imutils import resize
 
 if __name__ == '__main__':
+    width = 600
+    height = 400
+
     ap = argparse.ArgumentParser()
     ap.add_argument("-t", "--display-time", type=int, required=False, default=-1,
                     help="Amount of time to display the image.  Sometimes 'q' does not work right away")
@@ -21,11 +24,12 @@ if __name__ == '__main__':
 
     cap = cv2.VideoCapture(0)
     cv2.namedWindow("Landmarks", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('Landmarks', 800, 600)
+    cv2.resizeWindow('Landmarks', width, height)
 
     while True:
         # load the input image and convert it to grayscale
         _, image = cap.read()
+        image = resize(image, width=width, height=height)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
         # detect faces in the grayscale image

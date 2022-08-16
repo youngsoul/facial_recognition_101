@@ -4,6 +4,7 @@ import cv2
 from skimage.feature import hog
 from skimage import exposure
 import argparse
+from imutils import resize
 
 """
 Script to display the hog image from the video cam capture
@@ -103,6 +104,9 @@ def create_HOG_image(image):
 
 
 if __name__ == '__main__':
+    width = 600
+    height = 400
+
     ap = argparse.ArgumentParser()
     ap.add_argument("-t", "--display-time", type=int, required=False, default=-1,
                     help="Amount of time to display the HOG image.  Sometimes 'q' does not work right away")
@@ -114,13 +118,14 @@ if __name__ == '__main__':
 
     cv2.namedWindow("Original", cv2.WINDOW_NORMAL)
     cv2.namedWindow("HOG", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('Original', 800, 600)
-    cv2.resizeWindow('HOG', 800, 600)
+    cv2.resizeWindow('Original', width, height)
+    cv2.resizeWindow('HOG', width, height)
 
     # loop over frames from the vdeo file stream
     while True:
         # grab the frame from the threaded video stream
         frame = vs.read()
+        frame = resize(frame, width=width, height=height)
 
         hog_image = create_HOG_image(frame)
         cv2.imshow("Original", frame)
